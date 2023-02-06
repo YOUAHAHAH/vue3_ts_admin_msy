@@ -10,24 +10,15 @@
 </template>
 
 <script setup lang="ts" name="HomeHeader">
-import avatar from '@/assets/img/avatar.jpg';
+import { nowHour } from "@/utils/timeConfiguration";
+import avatar from "@/assets/img/avatar.jpg";
 
 const srcList: string[] = [avatar];
 
-const timer: Date = new Date();
-const Houers: number = timer.getHours();
-const greet = ref<string>('');
+const greet = ref<string | undefined>("");
 
 onBeforeMount(() => {
-  if (Houers >= 0 && Houers <= 6) {
-    greet.value = '凌晨好！';
-  } else if (Houers > 6 && Houers <= 12) {
-    greet.value = '上午好！';
-  } else if (Houers > 12 && Houers <= 18) {
-    greet.value = '下午好！';
-  } else if (Houers > 18 && Houers < 24) {
-    greet.value = '晚上好！';
-  }
+  greet.value = nowHour();
 });
 </script>
 

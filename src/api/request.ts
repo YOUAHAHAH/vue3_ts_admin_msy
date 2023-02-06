@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import {
   handleChangeRequestHeader,
   handleConfigureAuth,
@@ -7,12 +7,12 @@ import {
   handleNetworkError,
   // addPending,
   // removePending,
-} from './tools';
-import type { Fn, IAnyObj, FcResponse } from './type';
+} from "./tools";
+import type { Fn, IAnyObj, FcResponse } from "./type";
 
 //1. 创建axios对象
 const request = axios.create({
-  baseURL: 'http://175.178.169.52:8989/',
+  // baseURL: "http://175.178.169.52:8989/",
   timeout: 5000,
 });
 
@@ -27,13 +27,13 @@ request.interceptors.request.use((config) => {
 request.interceptors.response.use(
   (response) => {
     if (response.status !== 200) return Promise.reject(response.data);
-    handleAuthError(response.data.errno);
-    handleGeneralError(response.data.errno, response.data.errmsg);
+    handleAuthError(response?.data?.errno);
+    handleGeneralError(response?.data?.error, response?.data?.errmsg);
     // removePending(response.config);
     return response;
   },
   (err) => {
-    handleNetworkError(err.response.status);
+    handleNetworkError(err.response?.status);
     // removePending(err.config);
     Promise.reject(err.response);
   },
@@ -79,3 +79,5 @@ export const Post = <T>(
       });
   });
 };
+
+export default request;

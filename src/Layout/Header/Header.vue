@@ -6,7 +6,6 @@
     </div>
     <div class="header_right">
       <Message />
-      <Locales />
       <FullScreenVue />
       <UserDropdown />
     </div>
@@ -20,7 +19,6 @@
 import IsCollapseVue from "./components/IsCollapse.vue";
 import Breadcrumb from "./components/Breadcrumb.vue";
 import Message from "./components/Message.vue";
-import Locales from "./components/Locales.vue";
 import FullScreenVue from "./components/FullScreen.vue";
 import UserDropdown from "./components/UserDropdown.vue";
 import Tag from "./components/Tag.vue";

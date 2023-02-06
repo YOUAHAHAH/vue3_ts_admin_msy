@@ -4,8 +4,6 @@ import App from "./App.vue";
 import router from "./router";
 import stores from "./stores";
 
-import { useI18n } from "@/utils/i18n";
-
 import "@/assets/style/ep.less";
 import "@/assets/style/adaptation.less";
 import "element-plus/dist/index.css";
@@ -26,5 +24,4 @@ app.component(ElCollapseTransition.name, ElCollapseTransition);
 
 app.use(router);
 app.use(stores);
-app.use(useI18n);
 app.mount("#app");

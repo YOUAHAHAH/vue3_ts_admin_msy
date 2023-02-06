@@ -5,7 +5,6 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
-import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 export default (env: ConfigEnv) => {
@@ -14,11 +13,6 @@ export default (env: ConfigEnv) => {
   const vitePlugins: (Plugin | Plugin[])[] = [
     vue({
       include: [/.vue$/],
-    }),
-    VueI18nPlugin({
-      runtimeOnly: true,
-      compositionOnly: true,
-      include: [resolve("locales/**")],
     }),
     vueJsx(),
     AutoImport({
